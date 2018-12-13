@@ -2,8 +2,8 @@
 
 
 \usepackage[italian]{babel}% package per la lingua italiana
-\usepackage{graphicx} % package per caricare immagini 
-\usepackage{tabularx} % package per creare tabelle 
+\usepackage{graphicx} % package per caricare immagini
+\usepackage{tabularx} % package per creare tabelle
 \usepackage[utf8x]{inputenc} % package per i simboli utf8x
 \usepackage{times} % package per il times new roman font
 \usepackage{float} %serve per mettere le immagini in posizione Here
@@ -30,7 +30,7 @@ Provide a linear time algorithm that takes in input a weighted directed graph $G
 
 \subsection{First Observation}
 
-We change the cost of each edge $e(v,w)$ according to the formula $$ c_{new}(e) = c(e)-d(v)+d(w)$$ 
+We change the cost of each edge $e(v,w)$ according to the formula $$ c_{new}(e) = c(e)-d(v)+d(w)$$
 
 \begin{itemize}
 
@@ -68,7 +68,7 @@ If there exist a path from v to t of cost c and we reverse all the edges, there 
 \item If $c_{new}(e) > 0$: ignore the edge
 
 \end{itemize}
- 
+
 \item If there exist a node v not visited by the algorithm such that $d(v) < +\infty$: return false;
 \item Return true;
 
@@ -81,12 +81,16 @@ If there exist a path from v to t of cost c and we reverse all the edges, there 
 You are given a weighted directed graph $G = (V, E)$, with costs on the edges $c(e) for e ∈ E$ (cost may
 be negative), a node $t ∈ V$ and, for each $v ∈ V$ a value d(v) which is the cost of a path of minimum cost
 from v to t. Provide an $O(|E| log |V |)$ algorithm that given G, $d()$ and a node t 6 = t 0 computes, for each
-$v ∈ V$ the minimum cost of a path from v to t 0. 
+$v ∈ V$ the minimum cost of a path from v to t 0.
+\\\\
+Here is the algorithm:
+\begin{enumerate}
+  \item Reverse the direction of each edge $e(v, w)$
+  \item For each edge, compute a new cost $X{new}(e) = c(e)-d(v)+d(w)$
+  \item Do a Dijkstra starting from the node $t$
+\end{enumerate}
 
 \subsection{}
-
-
-
 
 
 \section{Exercise 3}
@@ -101,7 +105,7 @@ iteration to solve the problem.
 	\begin{center}
 		\includegraphics[width=0.6\textwidth]{abcd.png}
 		\caption{Flow network(N) of the problem }
-		
+
 	\end{center}
 \end{figure}
 
@@ -111,14 +115,14 @@ iteration to solve the problem.
 The steps of the algorithm saw in the class are:
 \begin{enumerate}
 
-\item Find a Feasible circulation $Fc$ for N 
+\item Find a Feasible circulation $Fc$ for N
 \item While $R(Fc)$ has no negative cycle C, then $Fc = Sw(Fc,C)$
 
 \end{enumerate}
 
 
 
-The fist step of the algorithm saw in the class is to produce the residual graph 
+The fist step of the algorithm saw in the class is to produce the residual graph
 
 
 \begin{tikzpicture}[
@@ -200,14 +204,14 @@ the graph above is the result of the first iteration of the worst choice that th
 
  \end{tikzpicture}
 
-the second graph is the second iteration and if we continue to take the path from A to D passing each time from the edge between B and C 
+the second graph is the second iteration and if we continue to take the path from A to D passing each time from the edge between B and C
 ( the path ABCD and ACBD )
 the result is a repeat of this two iterations above and using this choice we have that the algorithm takes $2*10^6$ iterations
 
 
 \section{Exercise 4}
 
-Assume that the following matrix has to be tested for the C1P. Using the algorithm seen in class provide 
+Assume that the following matrix has to be tested for the C1P. Using the algorithm seen in class provide
 \begin{enumerate}
 
 \item[a] The overlap graph
@@ -245,7 +249,7 @@ in each row (if there are fewer than 3 possible such permutations, provide them 
 %0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 \\
 %1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0 \\
 %0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-%0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 
+%0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0
 %
 %\end{matrix}
 
@@ -257,33 +261,31 @@ in each row (if there are fewer than 3 possible such permutations, provide them 
 	\end{center}
 \end{figure}
 
-
 \subsection{containment graph}
-
-
-
-
-
 
 
 \section{Exercise 5}
 
-%A lab is seriously facing shortage of primary storage space for its files/data. The lab has to buying/rent
-%secondary remote storage facilities. Preliminary analyses have indicated this as a better solution than
-%in-house expansion of the primary storage. The different available options have both limitations in the
-%maximum amount of space offered and costs related to the access of the information, once stored there.
-%We are interested in determining the optimal policy to choose how to distribute the files not anymore
-%fitting in-house on different secondary remote storage facilities in order to limit the cost incurred by taking
-%into account the different expected usage rate of the different type of information we are relocating.
-%Assume there are n remote facilities where to relocate the exceeding files. Let α j be the maximum
-%amount of information on the remote facility j and χ j be the cost to access one unit of information
-%from this facility. We assume that the information we need to store remotely is divided into m different
-%categories, each one of which is accessed with some rate. Let γ i be the amount of information units from
-%the category i, and let ρ i be the rate (how many times per unit time) a unit of information from category
-%i will need to be retrieved. We aim at storing/distributing the information in the different remote storage
-%places in order to minimize the overall expected cost of retrieval.
-%
-%
+A lab is seriously facing shortage of primary storage space for its files/data. The lab has to buying/rent
+secondary remote storage facilities. Preliminary analyses have indicated this as a better solution than
+in-house expansion of the primary storage. The different available options have both limitations in the
+maximum amount of space offered and costs related to the access of the information, once stored there.
+We are interested in determining the optimal policy to choose how to distribute the files not anymore
+fitting in-house on different secondary remote storage facilities in order to limit the cost incurred by taking
+into account the different expected usage rate of the different type of information we are relocating.
+Assume there are n remote facilities where to relocate the exceeding files. Let $\alpha_j$ be the maximum
+amount of information on the remote facility j and xx j be the cost to access one unit of information
+from this facility. We assume that the information we need to store remotely is divided into m different
+categories, each one of which is accessed with some rate. Let xx i be the amount of information units from
+the category i, and let xx i be the rate (how many times per unit time) a unit of information from category
+i will need to be retrieved. We aim at storing/distributing the information in the different remote storage
+places in order to minimize the overall expected cost of retrieval.
+\\\\
+Build a circulation in the following way:
+\begin{itemize}
+  \item 
+\end{itemize}
+
 
 
 
@@ -303,4 +305,3 @@ in each row (if there are fewer than 3 possible such permutations, provide them 
 
 
 \end{document}
-
