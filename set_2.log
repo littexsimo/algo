@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.7.4)  13 DEC 2018 18:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.7.4)  13 DEC 2018 18:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -110,9 +110,6 @@ File: uni-global.def 2013/05/13 UCS: Unicode global data
 \uc@combtoks=\toks19
 \uc@combtoksb=\toks20
 \uc@temptokena=\toks21
-)
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
-Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
@@ -534,11 +531,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 17.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-)
 LaTeX Info: Redefining \it@ocap on input line 17.
 LaTeX Info: Redefining \it@ccap on input line 17.
 
@@ -623,39 +615,27 @@ e
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 27.
-
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-34.def
 File: uni-34.def 2013/05/13 UCS: Unicode data U+2200..U+22FF
 )
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 37.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 37.
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (5.55435pt too wide) in paragraph at lines 81--85
-\OT1/ptm/m/n/10 You are gi-ven a weighted di-rec-ted gra-ph $\OML/cmm/m/it/10 G
- \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 V; E\OT1/cmr/m/n/10 )$\OT1/ptm/m/n/10 , wi
-th costs on the ed-ges $\OML/cmm/m/it/10 c\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 e\O
-T1/cmr/m/n/10 )\OML/cmm/m/it/10 fore \OMS/cmsy/m/n/10 2
- []
-
-<abcd.png, id=15, 705.63625pt x 492.84125pt>
+<abcd.png, id=16, 705.63625pt x 492.84125pt>
 File: abcd.png Graphic file (type png)
 <use abcd.png>
 Package pdftex.def Info: abcd.png  used on input line 102. on input line 102.
 Package pdftex.def Info: Requested size: 207.0021pt x 144.57472pt on input line
  102.
-[2 <./abcd.png>] [3]
-<overlap_graph.png, id=27, 876.27374pt x 453.695pt>
+ [2 <./abcd.png>] [3]
+<overlap_graph.png, id=28, 876.27374pt x 453.695pt>
 File: overlap_graph.png Graphic file (type png)
 <use overlap_graph.png>
 Package pdftex.def Info: overlap_graph.png  used on input line 256. on input li
@@ -664,29 +644,29 @@ Package pdftex.def Info: Requested size: 207.0021pt x 107.17216pt on input line
  256.
  [4 <./overlap_graph.png>] (./set_2.aux) ) 
 Here is how much of TeX's memory you used:
- 15464 strings out of 492990
- 310279 string characters out of 6135006
- 370918 words of memory out of 5000000
- 18710 multiletter control sequences out of 15000+600000
- 17720 words of font info for 42 fonts, out of 8000000 for 9000
+ 15414 strings out of 492990
+ 309495 string characters out of 6135006
+ 370833 words of memory out of 5000000
+ 18672 multiletter control sequences out of 15000+600000
+ 8832 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,8n,76p,823b,805s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/
-enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+</usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/eurosym/feymr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8
-a.pfb>
-Output written on set_2.pdf (4 pages, 155330 bytes).
+ts/type1/public/eurosym/feymr10.pfb>
+Output written on set_2.pdf (4 pages, 173933 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 70 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
