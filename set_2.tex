@@ -2,8 +2,8 @@
 
 
 \usepackage[italian]{babel}% package per la lingua italiana
-\usepackage{graphicx} % package per caricare immagini 
-\usepackage{tabularx} % package per creare tabelle 
+\usepackage{graphicx} % package per caricare immagini
+\usepackage{tabularx} % package per creare tabelle
 \usepackage[utf8x]{inputenc} % package per i simboli utf8x
 %\usepackage{times} % package per il times new roman font
 \usepackage{float} %serve per mettere le immagini in posizione Here
@@ -26,50 +26,54 @@
 
 \section{Exercise 1}
 
-Provide a linear time algorithm that takes in input a weighted directed graph $G = (V, E)$, with costs on theedges $c(e)$ for $e∈E$ (cost may be negative), a node $t∈V$ and, for each $v∈V$ a value $d(v)$,and decides whether for each $v ∈ V$ it is true that $d(v)$ is the cost of the path of minimum cost among all the paths from from v to t.
+Provide a linear time algorithm that takes in input a weighted directed graph $G = (V, E)$,
+with costs on theedges $c(e)$ for $e∈E$ (cost may be negative), a node $t∈V$ and,
+for each $v∈V$ a value $d(v)$,and decides whether for each $v ∈ V$ it is true that $d(v)$ is the
+cost of the path of minimum cost among all the paths from from $v$ to $t$.
 
 \subsection{First Observation}
 
-We change the cost of each edge $e(v,w)$ according to the formula $$ c_{new}(e) = c(e)-d(v)+d(w)$$ 
+We change the cost of each edge $e(v,w)$ according to the formula $$ c_{new}(e) = c(e)-d(v)+d(w)$$
 
 \begin{itemize}
 
-\item if $c_{new}(e)  < 0$ the minimum cost didn't take in account the edge because $d(w) - d(v)$ is greather than the cost of the current edge so the cost are not correct;
+\item if $c_{new}(e)  < 0$ the minimum cost didn't take in account the edge because $d(w) - d(v)$ is greater
+than the cost of the current edge so the cost are not correct;
 
-\item if $c_{new}(e)  = 0$ the minimum path from v to t passes through this edge;
+\item if $c_{new}(e)  = 0$ the minimum path from $v$ to $t$ passes through this edge;
 
-\item if $c_{new}(e)  > 0$ the edge is not part of the minimum path from v to t;
+\item if $c_{new}(e)  > 0$ the edge is not part of the minimum path from $v$ to $t$;
 
 
 \end{itemize}
 
 \subsection{Second Observation}
 
-If there exist a path from v to t of cost c and we reverse all the edges, there should be a path from t to v with cost c;
+If there exist a path from $v$ to $t$ of cost $c$ and we reverse all the edges, there should be a path from $t$ to $v$ with cost $c$;
 
 \subsection{Algorithm}
 
 \begin{enumerate}
 
-\item Suppose that if t is not reachable from a vertex v, $ d(v) = + \infty$;
+\item Suppose that if $t$ is not reachable from a vertex $v$, $ d(v) = + \infty$;
 \item For each edge $e(v,w)$, change its cost to $ c_{new}(e) $;
 
 \item Reverse the direction of all edges;
 
-\item Starting from t, do a modified DFS in the following way:
+\item Starting from $t$, do a modified DFS in the following way:
 
-\item For each edge $e(v,w)$ that is outgoing from the current vertex v:
+\item For each edge $e(v,w)$ that is outgoing from the current vertex $v$:
 
 \begin{itemize}
 
 
-\item If $c_{new}(e) = 0$: visit the node w
+\item If $c_{new}(e) = 0$: visit the node $w$
 \item If $c_{new}(e) < 0$: return false
 \item If $c_{new}(e) > 0$: ignore the edge
 
 \end{itemize}
- 
-\item If there exist a node v not visited by the algorithm such that $d(v) < +\infty$: return false;
+
+\item If there exist a node $v$ not visited by the algorithm such that $d(v) < +\infty$: return false;
 \item Return true;
 
 
@@ -78,15 +82,22 @@ If there exist a path from v to t of cost c and we reverse all the edges, there 
 
 \section{Exercise 2}
 
-You are given a weighted directed graph $G = (V, E)$, with costs on the edges $c(e) for e ∈ E$ (cost may
-be negative), a node $t ∈ V$ and, for each $v ∈ V$ a value d(v) which is the cost of a path of minimum cost
-from v to t. Provide an $O(|E| log |V |)$ algorithm that given G, $d()$ and a node t 6 = t 0 computes, for each
-$v ∈ V$ the minimum cost of a path from v to t 0. 
+You are given a weighted directed graph $G = (V, E)$, with costs on the edges $c(e)$ for $e ∈ E$ (cost may
+be negative), a node $t ∈ V$ and, for each $v ∈ V$ a value $d(v)$ which is the cost of a path of minimum cost
+from $v$ to $t$. Provide an $O(|E| log |V |)$ algorithm that given G, $d()$ and a node $t \neq t'$ computes, for each
+$v ∈ V$ the minimum cost of a path from $v$ to $t'$.
+\\\\
+Here is the algorithm:
+\begin{enumerate}
+  \item Reverse the direction of each edge $e(v, w)$
+  \item For each edge, compute a new cost $\chi(e) = c(e)-d(v)+d(w)$
+  \item Do a Dijkstra starting from the node $t$ and using the costs $\chi(e)$
+  \item Let $\gamma(v)$ be the minimum path costs computed at the previous step
+  \item The min cost of the path from a node $v$ to $t$ is then given by $$d_{t'}(v) = d(v) + \gamma(v) - d(t')$$
+  \item Note that if $t'$ is not reachable from $v$ in the original graph, then $\gamma(v) = +\infty$ so $d_{t'}(v) = +\infty$
+\end{enumerate}
 
 \subsection{}
-
-
-
 
 
 \section{Exercise 3}
@@ -101,7 +112,7 @@ iteration to solve the problem.
 	\begin{center}
 		\includegraphics[width=0.6\textwidth]{abcd.png}
 		\caption{Flow network(N) of the problem }
-		
+
 	\end{center}
 \end{figure}
 
@@ -111,14 +122,14 @@ iteration to solve the problem.
 The steps of the algorithm saw in the class are:
 \begin{enumerate}
 
-\item Find a Feasible circulation $Fc$ for N 
+\item Find a Feasible circulation $Fc$ for N
 \item While $R(Fc)$ has no negative cycle C, then $Fc = Sw(Fc,C)$
 
 \end{enumerate}
 
 
 
-The fist step of the algorithm saw in the class is to produce the residual graph 
+The fist step of the algorithm saw in the class is to produce the residual graph
 
 
 \begin{tikzpicture}[
@@ -200,14 +211,14 @@ the graph above is the result of the first iteration of the worst choice that th
 
  \end{tikzpicture}
 
-the second graph is the second iteration and if we continue to take the path from A to D passing each time from the edge between B and C 
+the second graph is the second iteration and if we continue to take the path from A to D passing each time from the edge between B and C
 ( the path ABCD and ACBD )
-the result is a repeat of this two iterations above and using this choice we have that the algorithm takes $2*10^6$ iterations
+the result is a repeat of this two iterations above and using this choice we have that the algorithm takes $2*10^6$ iterations.
 
 
 \section{Exercise 4}
 
-Assume that the following matrix has to be tested for the C1P. Using the algorithm seen in class provide 
+Assume that the following matrix has to be tested for the C1P. Using the algorithm seen in class provide
 \begin{enumerate}
 
 \item[a] The overlap graph
@@ -228,7 +239,6 @@ in each row (if there are fewer than 3 possible such permutations, provide them 
 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
 \end{bmatrix}\]
-
 
 
 \subsection{overlap graph}
@@ -280,7 +290,6 @@ then:
 	\end{center}
 \end{figure}
 
-
 \subsection{containment graph}
 
 \begin{figure}[H]
@@ -326,29 +335,52 @@ The only 2 permutations of the matrix A(c1,c2,c3,c4,c5,c6,c7,c8) in C1P are the 
 \end{itemize}
 
 
-
-
-
-
-
 \section{Exercise 5}
 
-%A lab is seriously facing shortage of primary storage space for its files/data. The lab has to buying/rent
-%secondary remote storage facilities. Preliminary analyses have indicated this as a better solution than
-%in-house expansion of the primary storage. The different available options have both limitations in the
-%maximum amount of space offered and costs related to the access of the information, once stored there.
-%We are interested in determining the optimal policy to choose how to distribute the files not anymore
-%fitting in-house on different secondary remote storage facilities in order to limit the cost incurred by taking
-%into account the different expected usage rate of the different type of information we are relocating.
-%Assume there are n remote facilities where to relocate the exceeding files. Let α j be the maximum
-%amount of information on the remote facility j and χ j be the cost to access one unit of information
-%from this facility. We assume that the information we need to store remotely is divided into m different
-%categories, each one of which is accessed with some rate. Let γ i be the amount of information units from
-%the category i, and let ρ i be the rate (how many times per unit time) a unit of information from category
-%i will need to be retrieved. We aim at storing/distributing the information in the different remote storage
-%places in order to minimize the overall expected cost of retrieval.
-%
-%
+A lab is seriously facing shortage of primary storage space for its files/data. The lab has to buying/rent
+secondary remote storage facilities. Preliminary analyses have indicated this as a better solution than
+in-house expansion of the primary storage. The different available options have both limitations in the
+maximum amount of space offered and costs related to the access of the information, once stored there.
+We are interested in determining the optimal policy to choose how to distribute the files not anymore
+fitting in-house on different secondary remote storage facilities in order to limit the cost incurred by taking
+into account the different expected usage rate of the different type of information we are relocating.
+Assume there are n remote facilities where to relocate the exceeding files. Let $\alpha_j$ be the maximum
+amount of information on the remote facility j and $\chi_j$ be the cost to access one unit of information
+from this facility. We assume that the information we need to store remotely is divided into m different
+categories, each one of which is accessed with some rate. Let $\gamma_i$ be the amount of information units from
+the category i, and let $\rho_i$ be the rate (how many times per unit time) a unit of information from category
+i will need to be retrieved. We aim at storing/distributing the information in the different remote storage
+places in order to minimize the overall expected cost of retrieval.
+\\\\
+a) Build a circulation network in the following way:
+\begin{itemize}
+  \item Add a node $C_i$ for each category $i$
+  \item Add a node $S_j$ for each storage facility $j$
+  \item Add an edge from each $C_i$ to each $S_j$ with cost $\rho_i * \chi_j$, capacity $+\infty$ and demand $0$
+  \item Add two nodes $B$, $E$ that act as source and sink
+  \item For each $C_i$ add an edge $e(B, C_i)$ with cost $0$, capacity and demand equal to $\gamma_i$.
+  \item For each $S_j$ add an edge $e(C_i, E)$ with cost $0$, capacity $\alpha_j$ and demand $0$.
+  \item add an edge $x(E, B)$ with capacity $+\infty$, demand and cost $0$.
+\end{itemize}
+
+b) If we assign the category with maximum rate to the minimum cost storage
+\begin{itemize}
+  \item Suppose that we take two categories $a, b$ and two facilities $x, y$ such
+    that $\rho_a >= \rho_b$ and $\chi_x <= \chi_y$.
+  \item Suppose also that $a$ and $x$ are the choices of the greedy algorithm at step $i$
+    and that $b$ and $y$ are respectively another category and another facility that a different algorithm could take.
+  \item If we prove that $$\rho_a * \chi_x + \rho_b * \chi_y <= \rho_a * \chi_y + \rho_b * \chi_x$$
+    then $a$ and $x$ are the globally best choices to match at step $i$.
+  \item Rearranging terms:
+    $$\rho_a * \chi_x - \rho_a * \chi_y <= \rho_b * \chi_y - \rho_b * \chi_x$$
+  \item Recollecting $\rho_a$ and $\rho_b$:
+    $$\rho_a * (\chi_x - \chi_y) <= \rho_b * (\chi_x - \chi_y)$$
+  \item If $\chi_x = \chi_y$ the expression is true
+  \item We know that $z = (\chi_x - \chi_y) < 0$ by assumption
+  \item If $\chi_x < \chi_y$ we have that $\rho_a * z <= \rho_b * z$
+    so it's true only if $\rho_a >= \rho_b$ but this condition is also an initial assumption, so the expression is also true.
+\end{itemize}
+
 
 
 
@@ -368,4 +400,3 @@ The only 2 permutations of the matrix A(c1,c2,c3,c4,c5,c6,c7,c8) in C1P are the 
 
 
 \end{document}
-
