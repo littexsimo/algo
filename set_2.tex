@@ -218,47 +218,112 @@ Assume that the following matrix has to be tested for the C1P. Using the algorit
 If the matrix has the C1P, provide 3 distict permutations of the columns that leave the 1s consecutive
 in each row (if there are fewer than 3 possible such permutations, provide them all). If the matrix does not have the C1P then apply the gap minimization algorithm considering only the last 5 columns.
 
-%\[
-%
-%A=
-%\left[ {\begin{array}{ccccccccc}
-%
-%1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 1 \\
-%1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 1 \\
-%0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
-%0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 \\
-%1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0 \\
-%0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-%0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-%
-%\end{array} } \right]
-%
-%\]
-%
-%
 
-%\begin{matrix}
-%
-%1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 1 \\
-%1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 1 \\
-%0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
-%0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 \\
-%1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0 \\
-%0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-%0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 
-%
-%\end{matrix}
+\[A=\begin{bmatrix}
+1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 1 \\
+1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 1 \\
+0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 \\
+1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+\end{bmatrix}\]
+
+
 
 \subsection{overlap graph}
+
+for the overlap graph we have to compute $Si$ that is the set of the columns that the value is 1;
+For the matrix A:
+
+\begin{itemize}
+
+\item r1 -$>$ S1=\{1,2,3,5,6,8,9\}
+\item r2 -$>$ S2=\{1,2,3,4,5,6,9\}
+\item r3 -$>$ S3=\{2,3,5\}
+\item r4 -$>$ S4=\{2,6,9\}
+\item r5 -$>$ S5=\{1,2,3,5,6,7,8\}
+\item r6 -$>$ S6=\{2\}
+\item r7 -$>$ S7=\{5\}
+
+\end{itemize}
+
+
+then:
+
+\begin{itemize}
+
+\item r1 overlap with r2
+\item r1 overlap with r5
+\item r2 overlap with r5
+\item r3 overlap with r4
+\item r4 overlap with r5
+
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.6\textwidth]{overlap_graph.png}
+		\caption{overlap graph}
 	\end{center}
 \end{figure}
 
 
 \subsection{containment graph}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{cont_graph.png}
+		\caption{containment graph}
+	\end{center}
+\end{figure}
+
+
+\subsection{Permutation of A  }
+
+The only 2 permutations of the matrix A(c1,c2,c3,c4,c5,c6,c7,c8) in C1P are the following:
+
+\begin{itemize}
+
+\item c4 c9 c6 c2 c3 c5 c1 c8 c7
+
+\[perm_{1}(A)=\begin{bmatrix}
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 \\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 \\
+0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 &1 & 0 & 0 & 0 \\
+\end{bmatrix}\]
+
+\item c4 c9 c6 c2 c5 c3 c1 c8 c7
+
+\[perm_{2}(A)=\begin{bmatrix}
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 \\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 \\
+0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+\end{bmatrix}\]
+
+
+
+\end{itemize}
 
 
 
